@@ -13,6 +13,10 @@ function getUser(req, res) {
   const id = validation.data;
   const user = User.getById(id);
 
+  console.log(User);
+  console.log(user);
+
+
   if (!user) {
     return sendNotFound(res, "User");
   }

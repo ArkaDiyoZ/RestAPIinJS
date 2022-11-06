@@ -12,10 +12,30 @@ const users = [
 ];
 
 class User {
+
   static getById(id) {
+
+    console.log(id);
+    const user = users.find((user) => user.id === id);
+    console.log(user);
+    return user || null;
+  }
+  
+  static changeById(id, setName, setSurename){
+
+    console.log(id);
+
     const user = users.find((user) => user.id === id);
 
-    return user || null;
+    console.log(user);
+
+    if (user != undefined){
+      user.name = setName;
+      user.surname = setSurename;
+      return user;
+    }
+
+    return null;
   }
 
   static getAll() {

@@ -3,11 +3,12 @@ const router = express.Router();
 
 const getUser = require("./get-user");
 const getUsers = require("./get-users");
+const changeUser = require("./post-change-user");
 
 router.get("/", getUsers);
 router.get("/:id", getUser);
 
-router.post("/", async (req, res) => {});
+router.post("/change/:id", changeUser);
 
 router.put("/:id", async (req, res) => {});
 
