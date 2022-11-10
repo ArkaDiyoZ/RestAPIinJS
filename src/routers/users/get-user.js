@@ -10,11 +10,10 @@ function getUser(req, res) {
     return sendBadRequest(res, validation);
   }
 
+  console.log(validation.status);
+
   const id = validation.data;
   const user = User.getById(id);
-
-  console.log(User);
-  console.log(user);
 
 
   if (!user) {

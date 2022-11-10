@@ -1,33 +1,24 @@
-const users = [
-  {
-    id: 1,
-    name: "Jon",
-    surname: "Doe",
-  },
-  {
-    id: 2,
-    name: "Sarochka",
-    surname: "Nochnya",
-  },
-];
+const users = require("../user/DataBaseModel");
 
 class User {
 
   static getById(id) {
 
-    console.log(id);
     const user = users.find((user) => user.id === id);
-    console.log(user);
+
     return user || null;
+  }
+
+  static addNewUser(newUser){
+
+      users.push(newUser);
+
+      return users;
   }
   
   static changeById(id, setName, setSurename){
 
-    console.log(id);
-
     const user = users.find((user) => user.id === id);
-
-    console.log(user);
 
     if (user != undefined){
       user.name = setName;
@@ -40,6 +31,16 @@ class User {
 
   static getAll() {
     return users;
+  }
+
+  static deleteUser(delUserId){
+
+    const index = users.findIndex(item => item.id === delUserId);
+    console.log(index);
+    users.splice(index, 1);
+
+    return users;
+
   }
 }
 
